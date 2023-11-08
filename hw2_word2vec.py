@@ -80,7 +80,7 @@ def preprocessing_fn(x, tokenizer):
 
 """
 
-n_samples = 5000  # the number of training example
+n_samples = 50  # the number of training example
 seed = 42 # random seed for our model so we can reproduce our results
 
 torch.manual_seed(seed)
