@@ -197,9 +197,9 @@ def collate_fn(batch, R, K):
     negative_context_ids = [random.sample(range(tokenizer.vocab_size), 2*K*R) for _ in batch]
 
     return {
-        'word_id': torch.tensor(word_ids),
-        'positive_context_ids': torch.tensor(positive_context_ids),
-        'negative_context_ids': torch.tensor(negative_context_ids)
+        'word_id': torch.tensor(word_ids).cuda(),
+        'positive_context_ids': torch.tensor(positive_context_ids).cuda(),
+        'negative_context_ids': torch.tensor(negative_context_ids).cuda()
     }
 
 """7. Now I will wrap everything in a `DataLoader` to simplify access to training and validation data that will be used to actually train the final model. I chose a batch size (defined by `B`) of 16 to start, as recommended by the authors of the BERT model."""
